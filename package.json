@@ -1,0 +1,30 @@
+{
+  "name": "website-master-template",
+  "version": "1.0.0",
+  "description": "Website template with gulp, browser-sync, babel and Sass",
+  "main": "build/index.html",
+  "author": "Euan Greenwood",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.13.0",
+    "browserify": "^13.1.0",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-cache": "^0.4.5",
+    "gulp-flatten": "^0.3.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
