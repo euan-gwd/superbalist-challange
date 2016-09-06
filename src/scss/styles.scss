@@ -1,0 +1,6 @@
+$bdr-clr: #000;
+
+.selected {
+	border: $bdr-clr dashed thin;
+	filter: drop-shadow(2px 2px 1px $bdr-clr);
+}

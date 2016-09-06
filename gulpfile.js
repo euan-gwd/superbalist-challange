@@ -23,16 +23,24 @@ gulp.task('styles', () => {
 
 // compiles es6 with Babel
 gulp.task('es2015', () => {
-	return gulp.src('src/js/app.js')
+	return gulp.src('src/js/*.js')
 		.pipe(plumber())
 		.pipe(babel({
 			presets: ['es2015']
 		}))
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest('build/js'))
 		.pipe(reload({
 			stream: true
 		}));
 });
+
+// // copies packages from bower components in src folder and compiles it to the build folder
+// gulp.task('depens', () => {
+// 	const sources = gulp.src(['./src/**/*.js', './src/**/*.css']);
+// 	gulp.src('src/lib/bootstrap/dist/*.min.js')
+// 		.pipe(flatten())
+// 		.pipe(gulp.dest('build/lib/'));
+// });
 
 //copy index.html to build
 gulp.task('html', () => {
@@ -59,7 +67,7 @@ gulp.task('browserSync', () => {
 gulp.task('default', ['html', 'styles', 'es2015', 'browserSync'], () => {
 	gulp.watch('src/scss/**/*.scss', ['styles']);
 	gulp.watch('src/js/**/*.js', ['es2015']);
-	gulp.watch('src/**/*.html', ['html']);
+	gulp.watch('src/index.html', ['html']);
 });
 
 // Production Tasks
