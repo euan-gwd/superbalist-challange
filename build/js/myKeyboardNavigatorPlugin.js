@@ -9,37 +9,33 @@
 			selector: "img"
 		}, options);
 
+		var fcount = 0;
+		var bcount = $(element.selector).length;
+
 		$(document).keyup(function (e) {
 			var selectedElem = $(element.selector);
 			var targetElem = void 0;
+			var eslength = $(element.selector).length;
 
 			if (e.which === 75) {
 				console.log(event.which + "pressed");
-				if (selectedElem.next(element.selector).length) {
-					targetElem = selectedElem.next(element.selector);
-					$("html, body").stop().animate({
-						scrollTop: targetElem.offset().top
-					}, 1000);
-				} else {
-					targetElem = $(element.selector + ":first");
-					$("html, body").stop().animate({
-						scrollTop: targetElem.offset().top
-					}, 1000);
-				}
-			} else if (e.which === 74) {
-				console.log(event.which + "pressed");
-				if (selectedElem.prev(element.selector).length) {
-					targetElem = selectedElem.prev(element.selector);
-					$("html, body").stop().animate({
-						scrollTop: targetElem.offset().top
-					}, 1000);
-				} else {
-					targetElem = $(element.selector + ":last");
-					$("html, body").stop().animate({
-						scrollTop: targetElem.offset().top
-					}, 1000);
-				}
+				fcount++;
+				console.log("keypressed " + fcount + " times");
+				// if($(element.selector).length) {
+				targetElem = $(element.selector + ":nth-of-type(" + fcount + ")");
+				$("html, body").stop().animate({
+					scrollTop: targetElem.offset().top
+				}, 1000);
 			} //end Forward
+
+			if (e.which === 74) {
+				console.log(event.which + "pressed");
+				bcount--;
+				targetElem = $(element.selector + ":nth-of-type(" + bcount + ")");
+				$("html, body").stop().animate({
+					scrollTop: targetElem.offset().top
+				}, 1000);
+			} //end Backward
 		}); //end keyup
 	}; //end myKeyboardNavigatorPlugin
 })(jQuery);
