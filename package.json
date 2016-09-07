@@ -1,5 +1,5 @@
 {
-  "name": "Superbalist Project",
+  "name": "superbalist_project",
   "version": "1.0.0",
   "description": "Skills Test for Superbalist with gulp, browser-sync, babel and Sass",
   "main": "src/index.html",
