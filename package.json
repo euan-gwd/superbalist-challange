@@ -1,7 +1,7 @@
 {
-  "name": "website-master-template",
+  "name": "Superbalist Project",
   "version": "1.0.0",
-  "description": "Website template with gulp, browser-sync, babel and Sass",
+  "description": "Skills Test for Superbalist with gulp, browser-sync, babel and Sass",
   "main": "src/index.html",
   "author": "Euan Greenwood",
   "license": "MIT",
@@ -12,9 +12,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-babel": "^6.1.2",
-    "gulp-inject": "^4.1.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.3.2",
-    "run-sequence": "^1.2.2"
+    "gulp-sass": "^2.3.2"
   }
 }

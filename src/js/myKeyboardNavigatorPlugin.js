@@ -11,7 +11,7 @@
 
 		$(document).keyup(function(e) {
 			let targetElem;
-			const eslength = $(element.selector).length;
+			const eslength = $(element.selector).length + 1;
 
 			if(e.which === 75) {
 				fcount++;
