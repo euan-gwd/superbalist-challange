@@ -33,14 +33,6 @@ gulp.task('es2015', () => {
 		}));
 });
 
-// copies packages from bower components in src folder and compiles it to the build folder
-gulp.task('depens', () => {
-	const sources = gulp.src(['./src/**/*.js', './src/**/*.css']);
-	gulp.src('src/lib/bootstrap/dist/*.min.js')
-		.pipe(flatten())
-		.pipe(gulp.dest('build/lib/'));
-});
-
 //copy index.html to build
 gulp.task('html', () => {
 	return gulp.src('src/index.html')
