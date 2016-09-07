@@ -13,7 +13,7 @@
 			let targetElem;
 			const eslength = $(element.selector).length + 1;
 
-			if(e.which === 75) {
+			if(e.which === 75 || e.which === 39) {
 				fcount++;
 				targetElem = $(`${element.selector}:nth-of-type(${fcount})`);
 				if(fcount < eslength) {
@@ -25,7 +25,7 @@
 				}
 			} //end Forward
 
-			if(e.which === 74) {
+			if(e.which === 74 || e.which === 37) {
 				bcount--;
 				targetElem = $(`${element.selector}:nth-of-type(${bcount})`);
 				if(bcount > 0) {
