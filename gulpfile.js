@@ -4,7 +4,6 @@ const gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
 	plumber = require('gulp-plumber'),
-	runSequence = require('run-sequence'),
 	babel = require('gulp-babel');
 
 // Compile Sass into CSS
@@ -34,13 +33,13 @@ gulp.task('es2015', () => {
 		}));
 });
 
-// // copies packages from bower components in src folder and compiles it to the build folder
-// gulp.task('depens', () => {
-// 	const sources = gulp.src(['./src/**/*.js', './src/**/*.css']);
-// 	gulp.src('src/lib/bootstrap/dist/*.min.js')
-// 		.pipe(flatten())
-// 		.pipe(gulp.dest('build/lib/'));
-// });
+// copies packages from bower components in src folder and compiles it to the build folder
+gulp.task('depens', () => {
+	const sources = gulp.src(['./src/**/*.js', './src/**/*.css']);
+	gulp.src('src/lib/bootstrap/dist/*.min.js')
+		.pipe(flatten())
+		.pipe(gulp.dest('build/lib/'));
+});
 
 //copy index.html to build
 gulp.task('html', () => {
@@ -68,47 +67,4 @@ gulp.task('default', ['html', 'styles', 'es2015', 'browserSync'], () => {
 	gulp.watch('src/scss/**/*.scss', ['styles']);
 	gulp.watch('src/js/**/*.js', ['es2015']);
 	gulp.watch('src/index.html', ['html']);
-});
-
-// Production Tasks
-
-// Compile Sass into CSS
-gulp.task('styles-dist', () => {
-	return gulp.src('src/scss/**/*.scss') // Gets all files ending with .scss in src/scss
-		.pipe(plumber())
-		.pipe(sass({
-			outputStyle: 'compact'
-		}).on('error', sass.logError)) // Converts Sass to CSS with gulp-sass
-		.pipe(prefix('last 2 versions', '> 1%', 'ie 8', 'Android 2', 'Firefox ESR')) //adds vendor prefixes if needed
-		.pipe(gulp.dest('dist/css')) // outputs CSS to src/css
-		.pipe(reload({
-			stream: true
-		}));
-});
-
-// compiles es6 with Babel
-gulp.task('es2015-dist', () => {
-	return gulp.src('src/js/app.js')
-		.pipe(plumber())
-		.pipe(babel({
-			presets: ['es2015']
-		}))
-		.pipe(gulp.dest('dist'))
-		.pipe(reload({
-			stream: true
-		}));
-});
-
-//copy index.html to build
-gulp.task('html-dist', () => {
-	return gulp.src('src/index.html')
-		.pipe(plumber())
-		.pipe(gulp.dest('dist'))
-		.pipe(reload({
-			stream: true
-		}));
-});
-
-gulp.task('build-dist', (callback) => {
-	runSequence('html-dist', 'styles-dist', 'es2015-dist', callback);
 });
