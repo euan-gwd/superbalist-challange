@@ -2,8 +2,9 @@
 	"use strict";
 
 	$(function() {
-		let options = {selector: "img"};
-
+		let options = {
+			selector: "img"
+		};
 		$(document).myKeyboardNavigatorPlugin(options);
 	});
 
