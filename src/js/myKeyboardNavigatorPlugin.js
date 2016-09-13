@@ -9,8 +9,7 @@
         let fcount = 0;
         let bcount = $(element.selector).length;
 
-        $(document).on('keyup',function(e) {
-            e.stopPropagation();
+        $(document).on("keyup",function(e) {
             let targetElem;
             const eslength = $(element.selector).length + 1;
 
