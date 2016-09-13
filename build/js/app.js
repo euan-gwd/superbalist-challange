@@ -1,12 +1,13 @@
 "use strict";
 
-(function () {
-	"use strict";
+jQuery.noConflict();
+(function ($) {
+  "use strict";
 
-	$(function () {
-		var options = {
-			selector: "img"
-		};
-		$(document).myKeyboardNavigatorPlugin(options);
-	});
-})();
+  $(function () {
+    var options = {
+      selector: "img"
+    };
+    $(document).myKeyboardNavigatorPlugin(options);
+  });
+})(jQuery);
